@@ -6,7 +6,7 @@ To run this project:
 
 * Download this project's <a href="https://github.com/4awpawz/bundlewithparcel/archive/refs/heads/master.zip">zip file</a> to your computer and unpack it.
 
-* Open a terminal and make the folder you unpacked this project into the current working folder.
+* Open a terminal and make the folder you unpacked this project's zip file into the current working folder.
 
 * From the terminal, run the following to install this project's 2 _development dependencies_ - _concurrently_ and _parcel-bundler_:
 
