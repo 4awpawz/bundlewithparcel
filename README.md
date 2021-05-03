@@ -1,4 +1,4 @@
-This project demonstrates just one of many ways that you can incorporate JavaScript bundling into your Trio projects. Specifically, this approach uses Parcel and NPM scripts but please note that __Trio does not limit you to using just Parcel and NPM and in fact you are free to use whatever JavaScript bundler (e.g. Parcel, Browserify, Webpack, Rollup.js, Webpack) and task runner (e.g. package.json scripts, Grunt, Gulp) that you prefer__.
+This project demonstrates just one of many ways that you can incorporate JavaScript bundling into your Trio projects. Specifically, this approach uses Parcel and NPM scripts but please note that __Trio does not limit you to using just Parcel and NPM and in fact you are free to use whatever JavaScript bundler (e.g. Parcel, Browserify, Rollup.js, Webpack) and task runner (e.g. package.json scripts, Grunt, Gulp) that you prefer__.
 
 <hr>
 
