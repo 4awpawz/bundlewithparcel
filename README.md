@@ -25,7 +25,7 @@ npm install
   }
 ```
 
-* When you run the _build_ script, Trio will _watch the source folder for any changes_ and when there are changes Trio will _build the site incrementally for development into the public folder_. This script will also instruct Parcel to _watch the source/jsBundle folder for any changes_ and when there are changes it will _build the JavaScript bundle whose entry point is source/jsBundle/main.js_ and _write the bundle to the public/scripts folder_.
+* When you run the _build_ script, Trio will _watch the source folder for any changes_ and when there are changes Trio will _build the site incrementally for development into the public folder_ and _serve the development build to the browser_ . This script will also instruct Parcel to _watch the source/jsBundle folder for any changes_ and when there are changes it will _build the JavaScript bundle whose entry point is source/jsBundle/main.js_ and _write the bundle to the public/scripts folder_.
 
 ```shell
  npm run build
