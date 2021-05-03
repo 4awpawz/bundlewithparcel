@@ -37,7 +37,7 @@ npm install
  npm run release
 ```
 
-* Finally, using your editor, please examine the _trio.json_ file. Specifically please take notice of the _ignore_ property. This property is used to declare one or more folders that users create in their project's _source_ folders for tasks unrelated to Trio's build and release workflows, such as for JavaScript bundling tasks which are driven by the user's inclusion of a task runner and JavaScript bundling application. If Trio were not to ignore these unrelated folders their content would pollute Trio's metadata as well as possibly causing unnecessary development builds. In the case of this application, any changes made to any files located in the _jsBundle_ folder will be ignored by Trio and will be handled by our NPM package.json scripts.
+* Finally, using your editor, please examine the _trio.json_ file. Specifically please take notice of the _ignore_ property. This property is used to declare one or more folders that users create in their project's _source_ folders for tasks unrelated to Trio's build and release workflows, such as for JavaScript bundling tasks which are driven by the user's inclusion of a task runner and JavaScript bundling application. If Trio were not to ignore these unrelated folders their content would pollute Trio's metadata as well as possibly causing unnecessary development builds. In the case of this application, any changes made to any files located in the _jsBundle_ folder will be ignored by Trio and will be handled by Parcel via NPM package.json scripts.
 
 ```json
 {
