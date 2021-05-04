@@ -43,6 +43,8 @@ npm install
 
 ## Declare Folders That Trio Should Ignore
 
+__Please note that Trio v6.0.0 does not support this feature but the next release of Trio will.__
+
 Finally, using your editor, please examine the _trio.json_ file. Specifically please take notice of the _ignore_ property. This property is used to declare one or more folders that users create in their project's _source_ folders for tasks unrelated to Trio's build and release workflows, such as for JavaScript bundling tasks which are driven by the user's inclusion of a task runner and JavaScript bundling application.
 
 ```json
