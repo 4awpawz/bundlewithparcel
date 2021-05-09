@@ -21,12 +21,13 @@ npm install
 1. Using your editor, please examine the _package.json_ file, which is located in the project's root folder. Specifically please take notice of the 2 NPM scripts, _build_ and _release_:
 
 ```json
-  "scripts": {
-        "parcelBuild": "parcel watch source/jsBundle/main.js --no-cache --out-dir public/scripts --public-url /scripts/",
-        "trioBuild": "trio b -I",
-        "build": "concurrently --kill-others \"npm run trioBuild\" \"npm run parcelBuild\" ",
-        "release": "trio r && parcel build source/jsBundle/main.js --no-cache --out-dir release/scripts --public-url /scripts/ && trio c -m && trio s -r"
-  }
+"scripts": {
+    "parcelBuild": "parcel watch source/jsBundle/main.js --no-cache --out-dir public/scripts --public-url /scripts/",
+    "trioBuildI": "trio b -I",
+    "trioBuildi": "trio b -i",
+    "build": "npm run trioBuildi && concurrently --kill-others \"npm run trioBuildI\" \"npm run parcelBuild\"",
+    "release": "trio r && parcel build source/jsBundle/main.js --no-cache --out-dir release/scripts --public-url /scripts/ && trio c -m && trio s -r"
+}
 ```
 
 2. When you run the _build_ script, Trio will _watch the source folder for any changes_ and when there are changes Trio will _build the site incrementally for development into the public folder_ and _serve the development build to the browser_ . This script will also instruct Parcel to _watch the source/jsBundle folder for any changes_ and when there are changes it will _build the JavaScript bundle whose entry point is source/jsBundle/main.js_ and _write the bundle to the public/scripts folder_.
