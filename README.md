@@ -43,6 +43,8 @@ npm install
 3. When you run the *release* script *to build the site for release* here is what happens:
     1. The script first calls `trio r` which instructs Trio to *buid the site for release*.
     1. The script then calls `parcel build` which instructs Parcel to target the `source/jsBundle/main.js` file and to write the generated JavaScript bundle to the `release/scripts` folder. It also instructs Parcel to make the URL that it will embed in the JavaScript bundle file that points to the generated map file *relative to the release /scripts/ folder*.
+    1. The script then calls `trio c -m` which instructs Trio to *cache bust the release folder* and to generate the *buster.manifest.json file*.
+    1. The script then calls `trio s -r` which instructs Trio to *serve the site in the browser*.
 
 ```shell
  npm run release
