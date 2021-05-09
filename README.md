@@ -22,21 +22,27 @@ npm install
 
 ```json
 "scripts": {
-    "parcelBuild": "parcel watch source/jsBundle/main.js --no-cache --out-dir public/scripts --public-url /scripts/",
-    "trioBuildI": "trio b -I",
-    "trioBuildi": "trio b -i",
-    "build": "npm run trioBuildi && concurrently --kill-others \"npm run trioBuildI\" \"npm run parcelBuild\"",
+    "parcel-watch": "parcel watch source/jsBundle/main.js --no-cache --out-dir public/scripts --public-url /scripts/",
+    "trioBuild-I": "trio b -I",
+    "trioBuild-i": "trio b -i",
+    "build": "npm run trioBuild-i && concurrently --kill-others \"npm run trioBuild-I\" \"npm run parcel-watch\"",
     "release": "trio r && parcel build source/jsBundle/main.js --no-cache --out-dir release/scripts --public-url /scripts/ && trio c -m && trio s -r"
 }
 ```
 
-2. When you run the _build_ script, Trio will _watch the source folder for any changes_ and when there are changes Trio will _build the site incrementally for development into the public folder_ and _serve the development build to the browser_ . This script will also instruct Parcel to _watch the source/jsBundle folder for any changes_ and when there are changes it will _build the JavaScript bundle whose entry point is source/jsBundle/main.js_ and _write the bundle to the public/scripts folder_.
+2. When you run the *build* script *to build the site for development* here is what happens:
+    1. `npm run trioBuild-i` is called which calls `trio b -i` which instructs Trio to do a *one-off incremental build*. This is important because this guarantees that the `public` folder exists when Parcel executes.
+    1. `concurrently` is called to run the remaining 2 items in the build script concurrently.
+    1. `npm run trioBuild-I` is called which calls `trio b -I` (a shortcut for trio b -iws) which instructs Trio to *build the project incrementally any time a file in the source folder is changed* (excluding ignore files - see below) and to *serve the site in the browser*.
+    1. `parcel-watch` is called which instructs Parcel to target the `source/jsBundle/main.js` file and to write the generated JavaScript bundle to the `public/scripts` folder. It also instructs Parcel to make the URL that it will embed in the JavaScript bundle file that points to the generated map file *relative to the public /scripts/ folder*.
 
 ```shell
  npm run build
 ```
 
-3. When you run the _release_ script, Trio will first _build the site for release into the release folder_. Then the script instructs Parcel to _build the JavaScript bundle whose entry point is source/jsBundle/main.js_ and _write the bundle to the release/scripts_ folder. Trio will then _cachebust the release folder_ and _serve the release build to the browser_.
+3. When you run the *release* script *to build the site for release* here is what happens:
+    1. The script first calls `trio r` which instructs Trio to *buid the site for release*.
+    1. The script then calls `parcel build` which instructs Parcel to target the `source/jsBundle/main.js` file and to write the generated JavaScript bundle to the `release/scripts` folder. It also instructs Parcel to make the URL that it will embed in the JavaScript bundle file that points to the generated map file *relative to the release /scripts/ folder*.
 
 ```shell
  npm run release
