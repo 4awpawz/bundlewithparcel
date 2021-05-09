@@ -1,3 +1,3 @@
-import helloWorld from "./helloWorld";
+import itworked from "./itworked";
 
-helloWorld();
+itworked();
