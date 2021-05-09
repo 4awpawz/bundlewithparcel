@@ -6,15 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "parcelBuild": "parcel watch source/jsBundle/main.js --no-cache --out-dir public/scripts --public-url /scripts/",
-    "trioBuild": "trio b -I",
-    "build": "concurrently --kill-others \"npm run trioBuild\" \"npm run parcelBuild\" ",
+    "trioBuildI": "trio b -I",
+    "trioBuildi": "trio b -i",
+    "build": "npm run trioBuildi && concurrently --kill-others \"npm run trioBuildI\" \"npm run parcelBuild\"",
     "release": "trio r && parcel build source/jsBundle/main.js --no-cache --out-dir release/scripts --public-url /scripts/ && trio c -m && trio s -r"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^6.0.2",
+    "concurrently": "^6.1.0",
     "parcel-bundler": "^1.12.5"
   }
 }
