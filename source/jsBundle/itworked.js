@@ -4,7 +4,11 @@ export default () => {
     img.setAttribute("src", "/media/happy-dance.gif");
     document.getElementsByTagName("main")[0].append(img);
     const para = document.createElement("p");
-    para.append("If you see this then JavaScript bundling has worked!");
+    para.append("JavaScript bundling worked");
     para.setAttribute("class", "copy");
+    const span = document.createElement("span");
+    span.append("!");
+    span.setAttribute("class", "exclamation");
+    para.append(span);
     document.getElementsByTagName("main")[0].append(para);
 }
