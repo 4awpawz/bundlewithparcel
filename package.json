@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "parcel-watch": "parcel watch source/jsBundle/main.js --no-cache --out-dir public/scripts --public-url /scripts/",
-    "trioBuild-I": "trio b -I",
-    "trioBuild-i": "trio b -i",
-    "build": "npm run trioBuild-i && concurrently --kill-others \"npm run trioBuild-I\" \"npm run parcel-watch\"",
+    "trioBuild": "trio b -I",
+    "build": "concurrently --kill-others \"npm run trioBuild\" \"npm run parcel-watch\"",
     "release": "trio r && parcel build source/jsBundle/main.js --no-cache --out-dir release/scripts --public-url /scripts/ && trio c -m && trio s -r"
   },
   "keywords": [],
