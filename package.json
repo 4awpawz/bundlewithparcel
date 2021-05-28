@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "parcel-watch": "parcel watch source/jsBundle/main.js --no-cache --out-dir public/scripts --public-url /scripts/",
+    "parcel-watch": "parcel watch source/jsBundle/main.js --no-cache --out-dir source/scripts --public-url /scripts/",
     "trioBuild": "trio b -I",
     "build": "concurrently --kill-others \"npm run trioBuild\" \"npm run parcel-watch\"",
     "release": "trio r && parcel build source/jsBundle/main.js --no-cache --out-dir release/scripts --public-url /scripts/ && trio c -m && trio s -r"

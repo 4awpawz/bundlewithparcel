@@ -3,4 +3,6 @@ public
 release
 trio.manifest.json
 buster.manifest.json
+source/scripts/main.js
+source/scripts/main.js.map
 .cache

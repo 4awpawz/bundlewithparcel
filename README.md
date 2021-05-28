@@ -22,7 +22,7 @@ npm install
 
 ```json
 "scripts": {
-    "parcel-watch": "parcel watch source/jsBundle/main.js --no-cache --out-dir public/scripts --public-url /scripts/",
+    "parcel-watch": "parcel watch source/jsBundle/main.js --no-cache --out-dir source/scripts --public-url /scripts/",
     "trioBuild": "trio b -I",
     "build": "concurrently --kill-others \"npm run trioBuild\" \"npm run parcel-watch\"",
     "release": "trio r && parcel build source/jsBundle/main.js --no-cache --out-dir release/scripts --public-url /scripts/ && trio c -m && trio s -r"
@@ -32,7 +32,7 @@ npm install
 2. When you run the *build* script *to build the site for development* here is what happens:
     1. `concurrently` is called to run the remaining 2 items in the build script concurrently.
     1. `npm run trioBuild` is called which calls `trio b -I` (a shortcut for trio b -iws) which instructs Trio to *build the project incrementally any time a file in the source folder is changed* (excluding ignore files - see below) and to *serve the site in the browser*.
-    1. `parcel-watch` is called next and instructs Parcel to target the `source/jsBundle/main.js` file and to write the generated JavaScript bundle to the `public/scripts` folder. It also instructs Parcel to embed a *project relative* URL into the JavaScript bundle which points to the generated map file. This is necessary because Buster, the cache busting package built into Trio's toolchain, requires that URLs that are to be targeted for cache busting must be project relative.
+    1. `parcel-watch` is called next and instructs Parcel to target the `source/jsBundle/main.js` file and to write the generated JavaScript bundle to the `source/scripts` folder. It also instructs Parcel to embed a *project relative* URL into the JavaScript bundle which points to the generated map file. This is necessary because Buster, the cache busting package built into Trio's toolchain, requires that URLs that are to be targeted for cache busting must be project relative.
 
 ```shell
  npm run build
@@ -52,7 +52,7 @@ npm install
 
 __Please note that this feature requires Trio v6.0.1 or better.__
 
-Finally, using your editor, please examine the _trio.json_ file. Specifically please take notice of the _ignore_ property. This property is used to declare one or more folders that are unrelated to Trio's build and release workflows, such as for JavaScript bundling tasks which are driven by the user's inclusion of an external task runner and an external JavaScript bundling application such as Parcel.
+Finally, using your editor, please examine the _trio.json_ file. Specifically please take notice of the _ignore_ property. This property is used to declare one or more folders that are unrelated to Trio's build and release workflows, such as those used for JavaScript bundling tasks which are driven by the user's inclusion of an external task runner and an external JavaScript bundling application such as Parcel.
 
 ```json
 {
