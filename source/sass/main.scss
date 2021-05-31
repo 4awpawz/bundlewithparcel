@@ -1,8 +1,20 @@
 $font-size: 2rem;
 
+main {
+    width: 100vw;
+}
+
 h1 {
     color: #a03b9d;
     font-size: $font-size;
+    text-align: center;
+}
+
+img {
+    max-width: 30rem;
+    min-width: 10rem;
+    margin: auto;
+    height: auto;
 }
 
 .copy {
@@ -12,6 +24,7 @@ h1 {
     &--error {
         color: #f00;
     }
+    text-align: center;
 }
 
 .exclamation {
@@ -19,8 +32,9 @@ h1 {
 }
 
 .something-went-wrong {
+    display: flex;
+    flex-flow: column nowrap;
     font-size: $font-size;
-    display: block;
     &--hidden {
         display: none;
     }
@@ -29,6 +43,7 @@ h1 {
 .it-worked {
     display: none;
     &--shown {
-        display: block;
+        display: flex;
+        flex-flow: column nowrap;
     }
 }
